@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trái Tim Rơi Xuống</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            font-weight: bold;
+            color: #FF3366;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #FFCCCC;
+            transform: rotate(225deg);
+            animation: fall 3s linear infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #FFCCCC;
+        }
+
+        .heart:before {
+            left: 15px;
+        }
+
+        .heart:after {
+            top: 15px;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: rotate(225deg) translateY(-50px);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(225deg) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<div class="message">Chúc Ưu 8/3 thật vui vẻ, hạnh phúc <3</div>
 
+<script>
+    // Hàm tạo trái tim ngẫu nhiên
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        // Vị trí ngẫu nhiên ở phía trên màn hình
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+        document.body.appendChild(heart);
+
+        heart.addEventListener('animationend', () => {
+            heart.remove();
+        });
+    }
+
+    setInterval(createHeart, 300);
+</script>
 </body>
 </html>
