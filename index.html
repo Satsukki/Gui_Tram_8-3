@@ -53,11 +53,11 @@
 
         @keyframes fall {
             0% {
-                transform: rotate(225deg) translateY(-50px);
+                transform: rotate(225deg) translateY(-30px);
                 opacity: 1;
             }
             100% {
-                transform: rotate(225deg) translateY(-100vh);
+                transform: rotate(225deg) translateY(-90vh);
                 opacity: 0;
             }
         }
@@ -68,11 +68,11 @@
 <div class="message">Chúc Ưu 8/3 thật vui vẻ, hạnh phúc <3</div>
 
 <script>
-    // Hàm tạo trái tim ngẫu nhiên
+
     function createHeart() {
         const heart = document.createElement('div');
         heart.classList.add('heart');
-        // Vị trí ngẫu nhiên ở phía trên màn hình
+
         heart.style.left = Math.random() * window.innerWidth + 'px';
         heart.style.animationDuration = Math.random() * 2 + 3 + 's';
         document.body.appendChild(heart);
